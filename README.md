@@ -1,13 +1,13 @@
 ![Context Mapper](https://raw.githubusercontent.com/wiki/ContextMapper/context-mapper-dsl/logo/cm-logo-github-small.png)
 # Demostración de Context Mapper para el IDE en línea
-[![Build](https://github.com/ContextMapper/web-ide-demo/actions/workflows/build.yml/badge.svg)](https://github.com/ContextMapper/web-ide-demo/actions) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&repo=ContextMapper/web-ide-demo) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/ContextMapper/web-ide-demo/actions/workflows/build.yml/badge.svg)](https://github.com/ContextMapper/web-ide-demo/actions) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&repo=MISW4406/tutorial-2-mapas-contexto) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Bienvenido al repositorio de demostración de Context Mapper. Aquí se ilustra cómo puedes configurar tu propio repositorio para utilizar Context Mapper en el IDE en línea de GitHub Codespaces.
 
 ## Comienza a utilizar Context Mapper ahora
 Inicia el Codespace y usa Context Mapper de inmediato:
 
-<a href="https://github.com/codespaces/new?hide_repo_select=true&repo=ContextMapper/web-ide-demo" style="padding: 10px;">
+<a href="https://github.com/codespaces/new?hide_repo_select=true&repo=MISW4406/tutorial-2-mapas-contexto" style="padding: 10px;">
     <img src="https://github.com/codespaces/badge.svg" width="150" alt="Push" align="center">
 </a>
 <br/><br/>
