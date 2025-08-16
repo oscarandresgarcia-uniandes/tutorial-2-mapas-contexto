@@ -1,42 +1,121 @@
 // =========================================================
-// Dominios y Subdominios - Alpes Partners
+// Alpes Partners — Dominios, Subdominios, Contextos y Mapa
+// (ES - Context Mapper CML)
 // =========================================================
 
 Domain AlpesPartners {
-    domainVisionStatement = "Plataforma integral para la gestión de asociaciones estratégicas (afiliados, influencers, lealtad y B2B)."
+  domainVisionStatement = "Plataforma integral para gestionar asociaciones de marketing (afiliados, influencers, lealtad y B2B), con atribución y pagos automatizados."
 
-    Subdomain MarketingAfiliados {
-        domainVisionStatement = "Automatiza la creación y gestión de programas de afiliación: reclutamiento, tracking, atribución y comisiones."
-        type = CORE_DOMAIN
-    }
+  // ---------- Núcleo (Core) ----------
+  Subdomain MarketingAfiliados {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Automatiza programas de afiliación end-to-end: búsqueda/reclutamiento, tracking, atribución y comisiones."
+  }
+  Subdomain MarketingInfluencers {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Gestiona colaboraciones con creadores: contenido, campañas y resultados medibles."
+  }
+  Subdomain AlianzasB2B {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Orquesta el ciclo de vida completo de partnerships B2B y acuerdos comerciales."
+  }
 
-    Subdomain MarketingInfluencers {
-        domainVisionStatement = "Conecta marcas con influencers y creadores, gestiona campañas y mide impacto en tiempo real."
-        type = CORE_DOMAIN
-    }
+  // ---------- Soporte (Supporting) ----------
+  Subdomain ProgramasLealtad {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Programa de referidos/embajadores con incentivos automáticos para amplificar el alcance."
+  }
+  Subdomain Pagos {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Configuración de comisiones y atribuciones; liquidación y conciliación de pagos integrados a gateways."
+  }
+  Subdomain Cumplimiento {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Cumplimiento normativo y políticas (divulgación publicitaria, antifraude, privacidad)."
+  }
+  Subdomain GestionCampanasContratos {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Gestión administrativa de campañas y contratos (briefs, aprobaciones, hitos y legal)."
+  }
 
-    Subdomain LealtadAdvocacy {
-        domainVisionStatement = "Gestiona programas de referidos y embajadores de marca con recompensas automáticas."
-        type = SUPPORTING_DOMAIN
-    }
+  // ---------- Genéricos (Generic) ----------
+  Subdomain Analitica {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Monitoreo de métricas, dashboards y reporting de ROI/contribución."
+  }
+  Subdomain AutomatizacionCampanas {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Workflows/reglas para activar/pausar/optimizar campañas de manera automática."
+  }
+  Subdomain Plataforma {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Infraestructura transversal (mensajería/eventos, DevOps, seguridad y observabilidad)."
+  }
+  Subdomain GestionContenido {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Producción, aprobación y publicación de contenido para campañas con creadores."
+  }
+}
 
-    Subdomain AlianzasB2B {
-        domainVisionStatement = "Administra alianzas estratégicas B2B, contratos y revenue share."
-        type = CORE_DOMAIN
-    }
+// =========================================================
+// Bounded Contexts (con implements en la cabecera)
+// =========================================================
 
-    Subdomain Pagos {
-        domainVisionStatement = "Orquesta pagos, calcula comisiones, integra con gateways externos y asegura conciliación."
-        type = SUPPORTING_DOMAIN
-    }
+BoundedContext MarketingAfiliadosContexto implements MarketingAfiliados, AutomatizacionCampanas {
+  domainVisionStatement = "Crear y operar programas de afiliados: reclutamiento, tracking, atribución y liquidación."
+}
 
-    Subdomain Analitica {
-        domainVisionStatement = "Ofrece dashboards, reportes de ROI, atribución multi-canal y optimización de campañas."
-        type = SUPPORTING_DOMAIN
-    }
+BoundedContext MarketingInfluencersContexto implements MarketingInfluencers, GestionContenido, GestionCampanasContratos {
+  domainVisionStatement = "Gestionar campañas con influencers/creadores, contenido y cumplimiento de divulgación."
+}
 
-    Subdomain Plataforma {
-        domainVisionStatement = "Infraestructura transversal de mensajería, seguridad, DevOps y observabilidad."
-        type = GENERIC_SUBDOMAIN
-    }
+BoundedContext LealtadAdvocacyContexto implements ProgramasLealtad {
+  domainVisionStatement = "Programas de referidos/embajadores con incentivos automáticos."
+}
+
+BoundedContext AlianzasB2BContexto implements AlianzasB2B {
+  domainVisionStatement = "Ciclo de vida de alianzas B2B, contratos y revenue-share."
+}
+
+BoundedContext PagosContexto implements Pagos, Cumplimiento {
+  domainVisionStatement = "Orquestación de pagos, integración con gateways y conciliación; validaciones de compliance antifraude."
+}
+
+BoundedContext AnaliticaContexto implements Analitica {
+  domainVisionStatement = "Dashboards, atribución de ROI y analítica de contribución."
+}
+
+BoundedContext PlataformaContexto implements Plataforma {
+  domainVisionStatement = "Plataforma de mensajería/eventos, DevOps, seguridad y observabilidad."
+}
+
+// =========================================================
+// Context Map (relaciones principales entre contextos)
+// =========================================================
+
+ContextMap AlpesPartnersMapaContexto {
+  contains MarketingAfiliadosContexto
+  contains MarketingInfluencersContexto
+  contains LealtadAdvocacyContexto
+  contains AlianzasB2BContexto
+  contains PagosContexto
+  contains AnaliticaContexto
+  contains PlataformaContexto
+
+  // UPSTREAM [U] → DOWNSTREAM [D] (notación abreviada)
+  MarketingAfiliadosContexto   [U,PL,OHS]->[D,ACL] PagosContexto
+  MarketingInfluencersContexto [U,PL,OHS]->[D,ACL] PagosContexto
+  LealtadAdvocacyContexto      [U,PL,OHS]->[D,ACL] PagosContexto
+  AlianzasB2BContexto          [U,PL,OHS]->[D,ACL] PagosContexto
+
+  // Datos hacia analítica
+  MarketingAfiliadosContexto   [U]->[D] AnaliticaContexto
+  MarketingInfluencersContexto [U]->[D] AnaliticaContexto
+  LealtadAdvocacyContexto      [U]->[D] AnaliticaContexto
+  AlianzasB2BContexto          [U]->[D] AnaliticaContexto
+  PagosContexto                [U]->[D] AnaliticaContexto
+
+  // Plataforma como proveedor de capacidades técnicas
+  PagosContexto     [D]<-[U] PlataformaContexto
+  AnaliticaContexto [D]<-[U] PlataformaContexto
 }
