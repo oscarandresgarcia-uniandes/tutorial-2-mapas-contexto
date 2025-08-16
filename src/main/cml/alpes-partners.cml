@@ -1,0 +1,181 @@
+// =========================================================
+// Alpes Partners — Dominios y Subdominios (DDD) en CML
+// =========================================================
+
+Domain EmpresaAlpesPartners {
+  domainVisionStatement = "Plataforma para conectar marcas con afiliados, creadores e industrias aliadas, habilitando adquisición y crecimiento mediante performance marketing y partnerships."
+}
+
+// ------------------------------
+// Dominio: Marketing de Afiliados
+// ------------------------------
+Domain AffiliateMarketing {
+  domainVisionStatement = "Gestionar el ciclo completo de programas de afiliados (reclutamiento → tracking → atribución → liquidación), con exactitud, escala y gobernanza."
+
+  Subdomain RecruitmentOnboarding {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Reclutar, invitar, evaluar y aprobar afiliados; gestionar contratos y términos (CPA/CPL/CPC)."
+  }
+
+  Subdomain TrackingAndConversion {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Capturar clics y conversiones desde los activos del cliente (CMS/e-commerce), preservando la trazabilidad."
+  }
+
+  Subdomain Attribution {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Atribuir conversiones a clics/afiliados aplicando ventanas, deduplicación y reglas del programa."
+  }
+
+  Subdomain SettlementAndCommissions {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Calcular comisiones por conversión según contratos/tarifas y preparar liquidaciones."
+  }
+
+  Subdomain FraudAndCompliance {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Validar fraude y cumplimiento normativo antes de aprobar comisiones y pagos."
+  }
+}
+
+// --------------------------------------------
+// Dominio: Marketing de Influencers y Creadores
+// --------------------------------------------
+Domain InfluencerMarketing {
+  domainVisionStatement = "Conectar marcas con influencers/creadores para ejecutar campañas medibles, con onboarding, contratos y medición del impacto."
+
+  Subdomain InfluencerDiscoverySelection {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Descubrir, calificar y seleccionar influencers/creadores adecuados por audiencia, vertical y métricas."
+  }
+
+  Subdomain CreativeCampaignManagement {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Orquestar campañas con entregables creativos, brief, aprobaciones y cronograma."
+  }
+
+  Subdomain ImpactMeasurement {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Medir alcance, engagement y conversiones atribuibles a la campaña."
+  }
+
+  Subdomain DisclosureCompliance {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Asegurar divulgaciones y requisitos regulatorios de contenidos patrocinados."
+  }
+}
+
+// -------------------------------------
+// Dominio: Programas de Lealtad/Advocacy
+// -------------------------------------
+Domain LoyaltyAdvocacy {
+  domainVisionStatement = "Convertir clientes/empleados en embajadores mediante referidos, testimonios e incentivos automáticos."
+
+  Subdomain AmbassadorManagement {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Gestionar el ciclo de vida de embajadores y sus referencias."
+  }
+
+  Subdomain ReferralTracking {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Rastrear referidos y sus conversiones, integrándose con atribución."
+  }
+
+  Subdomain RewardsIncentives {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Definir y ejecutar incentivos/recompensas por hitos o performance."
+  }
+}
+
+// ---------------------------------------
+// Dominio: Partnerships y Alianzas (B2B)
+// ---------------------------------------
+Domain PartnershipsB2B {
+  domainVisionStatement = "Administrar alianzas B2B con contratos, revenue share y métricas de ROI a nivel de partnership."
+
+  Subdomain PartnershipLifecycle {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Crear, negociar, activar y monitorear partnerships estratégicos."
+  }
+
+  Subdomain ContractAutomation {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Plantillas, versiones y firmas para acuerdos de partnership."
+  }
+
+  Subdomain PartnershipFinancials {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Métricas financieras, contribución y rentabilidad por partner."
+  }
+}
+
+// ----------------------------
+// Dominio: Pagos y Liquidación
+// ----------------------------
+Domain Payments {
+  domainVisionStatement = "Ejecutar pagos globales y multimoneda con resiliencia (reintentos, idempotencia) y conciliación."
+
+  Subdomain PayoutOrchestration {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Orquestar pagos desde comisiones aprobadas; controlar lotes, ventanas y flujos de reintento."
+  }
+
+  Subdomain PaymentGatewayIntegration {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Integrarse con procesadores externos (Stripe/PayPal/Payoneer) de forma segura e idempotente."
+  }
+
+  Subdomain ReconciliationAndAccounting {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Conciliar pagos, estados y diferencias; alimentar contabilidad."
+  }
+}
+
+// ----------------------------
+// Dominio: Analítica y Reportes
+// ----------------------------
+Domain AnalyticsReporting {
+  domainVisionStatement = "Habilitar decisiones con modelos de lectura, KPIs, ROI y análisis de contribución."
+
+  Subdomain RealTimeDashboards {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Proveer dashboards operativos en tiempo (casi) real para marcas y afiliados."
+  }
+
+  Subdomain ROIReporting {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Reportar ROI, LTV y contribución por canal/programa/partner."
+  }
+
+  Subdomain ExperimentationOptimization {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "A/B testing, reglas de optimización y ajustes automáticos (tiers, tarifas, pausas)."
+  }
+}
+
+// -------------------------------------
+// Dominio: Plataforma e Infraestructura
+// -------------------------------------
+Domain PlatformInfrastructure {
+  domainVisionStatement = "Plataforma técnica compartida que da soporte de eventos, despliegues, seguridad y observabilidad."
+
+  Subdomain MessagingPlatform {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Plataforma de mensajería (Event Bus/Broker) con soporte Outbox/Retry/DLQ para integración confiable."
+  }
+
+  Subdomain DevOpsAutomation {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "CI/CD, infraestructura como código y despliegues seguros."
+  }
+
+  Subdomain SecurityAndCompliance {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Identidad, autorización, auditoría, cumplimiento legal y protección de datos."
+  }
+
+  Subdomain Observability {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Logs, métricas, trazas distribuidas y alertamiento."
+  }
+}
