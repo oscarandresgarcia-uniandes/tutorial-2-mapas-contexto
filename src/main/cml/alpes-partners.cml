@@ -1,282 +1,50 @@
 // =========================================================
-// Alpes Partners — Dominios, Subdominios y Context Map (CML)
+// Alpes Partners — Context Map (en español)
 // =========================================================
 
-Domain EmpresaAlpesPartners {
-  domainVisionStatement = "Plataforma para conectar marcas con afiliados, creadores y aliados B2B, habilitando adquisición y crecimiento mediante performance marketing y partnerships."
+ContextMap AlpesPartnersMapaContexto {
+  contains MarketingAfiliadosContexto
+  contains MarketingInfluencersContexto
+  contains LealtadAdvocacyContexto
+  contains AlianzasB2BContexto
+  contains PagosContexto
+  contains AnaliticaContexto
+  contains PlataformaContexto
+
+  // Relaciones (notación abreviada)
+  MarketingAfiliadosContexto   [U,PL,OHS]->[D,ACL] PagosContexto
+  MarketingInfluencersContexto [U,PL,OHS]->[D,ACL] PagosContexto
+  LealtadAdvocacyContexto      [U,PL,OHS]->[D,ACL] PagosContexto
+  AlianzasB2BContexto          [U,PL,OHS]->[D,ACL] PagosContexto
+
+  MarketingAfiliadosContexto   [U]->[D] AnaliticaContexto
+  MarketingInfluencersContexto [U]->[D] AnaliticaContexto
+  LealtadAdvocacyContexto      [U]->[D] AnaliticaContexto
+  AlianzasB2BContexto          [U]->[D] AnaliticaContexto
+
+  PagosContexto     [D]<-[U] PlataformaContexto
+  AnaliticaContexto [D]<-[U] PlataformaContexto
 }
 
-// ------------------------------
-// Dominio: Marketing de Afiliados
-// ------------------------------
-Domain AffiliateMarketing {
-  domainVisionStatement = "Gestionar de extremo a extremo los programas de afiliados (reclutamiento → tracking → atribución → liquidación) con precisión y escala."
-
-  Subdomain RecruitmentOnboarding {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Reclutar, invitar, evaluar y aprobar afiliados; gestionar contratos y términos (CPA/CPL/CPC)."
-  }
-
-  Subdomain TrackingAndConversion {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Capturar clics y conversiones desde los activos del cliente (CMS/e-commerce) preservando trazabilidad."
-  }
-
-  Subdomain Attribution {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Atribuir conversiones a clics/afiliados aplicando ventanas, deduplicación y reglas del programa."
-  }
-
-  Subdomain SettlementAndCommissions {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Calcular comisiones según contratos/tarifas y preparar liquidaciones."
-  }
-
-  Subdomain FraudAndCompliance {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Validar fraude y cumplimiento normativo antes de aprobar comisiones y pagos."
-  }
+// ---- Bounded Contexts (con visión). Los tipos van en los Subdomains del otro archivo.
+BoundedContext MarketingAfiliadosContexto {
+  domainVisionStatement = "Crear y operar programas de afiliados: reclutamiento, tracking, atribución y liquidación."
 }
-
-// --------------------------------------------
-// Dominio: Marketing de Influencers y Creadores
-// --------------------------------------------
-Domain InfluencerMarketing {
-  domainVisionStatement = "Conectar marcas con influencers/creadores para campañas medibles con onboarding, contratos y medición de impacto."
-
-  Subdomain InfluencerDiscoverySelection {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Descubrir, calificar y seleccionar influencers por audiencia, vertical y métricas."
-  }
-
-  Subdomain CreativeCampaignManagement {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Orquestar campañas con entregables creativos, brief, aprobaciones y cronograma."
-  }
-
-  Subdomain ImpactMeasurement {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Medir alcance, engagement y conversiones atribuibles a la campaña."
-  }
-
-  Subdomain DisclosureCompliance {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Asegurar divulgaciones/regulación de contenidos patrocinados."
-  }
+BoundedContext MarketingInfluencersContexto {
+  domainVisionStatement = "Gestionar campañas con influencers y medir impacto."
 }
-
-// -------------------------------------
-// Dominio: Programas de Lealtad/Advocacy
-// -------------------------------------
-Domain LoyaltyAdvocacy {
-  domainVisionStatement = "Convertir clientes/empleados en embajadores mediante referidos, testimonios e incentivos automáticos."
-
-  Subdomain AmbassadorManagement {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Gestionar el ciclo de vida de embajadores y sus referencias."
-  }
-
-  Subdomain ReferralTracking {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Rastrear referidos y sus conversiones, integrándose con atribución."
-  }
-
-  Subdomain RewardsIncentives {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Definir y ejecutar incentivos/recompensas por hitos o performance."
-  }
+BoundedContext LealtadAdvocacyContexto {
+  domainVisionStatement = "Referidos y embajadores con incentivos automáticos."
 }
-
-// ---------------------------------------
-// Dominio: Partnerships y Alianzas (B2B)
-// ---------------------------------------
-Domain PartnershipsB2B {
-  domainVisionStatement = "Administrar alianzas B2B con contratos, revenue share y métricas de ROI por partnership."
-
-  Subdomain PartnershipLifecycle {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Crear, negociar, activar y monitorear partnerships estratégicos."
-  }
-
-  Subdomain ContractAutomation {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Plantillas/versionado/firmas para acuerdos de partnership."
-  }
-
-  Subdomain PartnershipFinancials {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Métricas financieras, contribución y rentabilidad por partner."
-  }
+BoundedContext AlianzasB2BContexto {
+  domainVisionStatement = "Ciclo de vida de alianzas B2B, contratos y revenue-share."
 }
-
-// ----------------------------
-// Dominio: Pagos y Liquidación
-// ----------------------------
-Domain Payments {
-  domainVisionStatement = "Ejecutar pagos globales y multimoneda con resiliencia (reintentos, idempotencia) y conciliación."
-
-  Subdomain PayoutOrchestration {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Orquestar pagos desde comisiones aprobadas; controlar lotes, ventanas y flujos de reintento."
-  }
-
-  Subdomain PaymentGatewayIntegration {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Integrarse con procesadores externos (Stripe/PayPal/Payoneer) de forma segura e idempotente."
-  }
-
-  Subdomain ReconciliationAndAccounting {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Conciliar pagos, estados y diferencias; alimentar contabilidad."
-  }
+BoundedContext PagosContexto {
+  domainVisionStatement = "Orquestación de pagos, integración con gateways y conciliación."
 }
-
-// ----------------------------
-// Dominio: Analítica y Reportes
-// ----------------------------
-Domain AnalyticsReporting {
-  domainVisionStatement = "Habilitar decisiones con modelos de lectura, KPIs, ROI y análisis de contribución."
-
-  Subdomain RealTimeDashboards {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Dashboards operativos en tiempo (casi) real para marcas y afiliados."
-  }
-
-  Subdomain ROIReporting {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Reportar ROI, LTV y contribución por canal/programa/partner."
-  }
-
-  Subdomain ExperimentationOptimization {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "A/B testing, reglas de optimización y ajustes automáticos (tiers, tarifas, pausas)."
-  }
+BoundedContext AnaliticaContexto {
+  domainVisionStatement = "Dashboards y reporting de ROI/contribución."
 }
-
-// -------------------------------------
-// Dominio: Plataforma e Infraestructura
-// -------------------------------------
-Domain PlatformInfrastructure {
-  domainVisionStatement = "Plataforma técnica compartida que da soporte de eventos, despliegues, seguridad y observabilidad."
-
-  Subdomain MessagingPlatform {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Plataforma de mensajería (Event Bus/Broker) con Outbox/Retry/DLQ para integración confiable."
-  }
-
-  Subdomain DevOpsAutomation {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "CI/CD, IaC y despliegues seguros."
-  }
-
-  Subdomain SecurityAndCompliance {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Identidad, autorización, auditoría, cumplimiento legal y protección de datos."
-  }
-
-  Subdomain Observability {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Logs, métricas, trazas distribuidas y alertamiento."
-  }
-}
-
-// =========================================================
-// Bounded Contexts (implementan subdominios)
-// =========================================================
-
-BoundedContext AffiliateMarketingContext {
-  implements AffiliateMarketing.RecruitmentOnboarding
-  implements AffiliateMarketing.TrackingAndConversion
-  implements AffiliateMarketing.Attribution
-  implements AffiliateMarketing.SettlementAndCommissions
-  implements AffiliateMarketing.FraudAndCompliance
-}
-
-BoundedContext InfluencerMarketingContext {
-  implements InfluencerMarketing.InfluencerDiscoverySelection
-  implements InfluencerMarketing.CreativeCampaignManagement
-  implements InfluencerMarketing.ImpactMeasurement
-  implements InfluencerMarketing.DisclosureCompliance
-}
-
-BoundedContext LoyaltyAdvocacyContext {
-  implements LoyaltyAdvocacy.AmbassadorManagement
-  implements LoyaltyAdvocacy.ReferralTracking
-  implements LoyaltyAdvocacy.RewardsIncentives
-}
-
-BoundedContext PartnershipsB2BContext {
-  implements PartnershipsB2B.PartnershipLifecycle
-  implements PartnershipsB2B.ContractAutomation
-  implements PartnershipsB2B.PartnershipFinancials
-}
-
-BoundedContext PaymentsContext {
-  implements Payments.PayoutOrchestration
-  implements Payments.PaymentGatewayIntegration
-  implements Payments.ReconciliationAndAccounting
-}
-
-BoundedContext AnalyticsContext {
-  implements AnalyticsReporting.RealTimeDashboards
-  implements AnalyticsReporting.ROIReporting
-  implements AnalyticsReporting.ExperimentationOptimization
-}
-
-BoundedContext PlatformContext {
-  implements PlatformInfrastructure.MessagingPlatform
-  implements PlatformInfrastructure.DevOpsAutomation
-  implements PlatformInfrastructure.SecurityAndCompliance
-  implements PlatformInfrastructure.Observability
-}
-
-// =========================================================
-/* Context Map: usa estos contexts y define relaciones.
-   Puedes ajustar tecnologías y tipos según tu implementación. */
-// =========================================================
-
-ContextMap AlpesPartnersContextMap {
-  contains AffiliateMarketingContext
-  contains InfluencerMarketingContext
-  contains LoyaltyAdvocacyContext
-  contains PartnershipsB2BContext
-  contains PaymentsContext
-  contains AnalyticsContext
-  contains PlatformContext
-
-  // Relaciones clave (Upstream → Downstream)
-  AffiliateMarketingContext -> PaymentsContext {
-    implementationTechnology = "Events"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  AffiliateMarketingContext -> AnalyticsContext {
-    implementationTechnology = "CDC/Events"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  InfluencerMarketingContext -> PaymentsContext {
-    implementationTechnology = "Events"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  LoyaltyAdvocacyContext -> PaymentsContext {
-    implementationTechnology = "Events"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  PartnershipsB2BContext -> PaymentsContext {
-    implementationTechnology = "Events"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  PaymentsContext -> PlatformContext {
-    implementationTechnology = "Messaging (Broker/Event Bus)"
-    type = UPSTREAM_DOWNSTREAM
-  }
-
-  AnalyticsContext -> PlatformContext {
-    implementationTechnology = "DW/OLAP + ETL/ELT"
-    type = UPSTREAM_DOWNSTREAM
-  }
+BoundedContext PlataformaContexto {
+  domainVisionStatement = "Plataforma de mensajería, seguridad, DevOps y observabilidad."
 }

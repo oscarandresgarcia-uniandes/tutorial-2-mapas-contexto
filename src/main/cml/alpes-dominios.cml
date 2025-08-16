@@ -1,0 +1,42 @@
+// =========================================================
+// Dominios y Subdominios - Alpes Partners
+// =========================================================
+
+Domain AlpesPartners {
+    domainVisionStatement = "Plataforma integral para la gestión de asociaciones estratégicas (afiliados, influencers, lealtad y B2B)."
+
+    Subdomain MarketingAfiliados {
+        domainVisionStatement = "Automatiza la creación y gestión de programas de afiliación: reclutamiento, tracking, atribución y comisiones."
+        type = CORE_DOMAIN
+    }
+
+    Subdomain MarketingInfluencers {
+        domainVisionStatement = "Conecta marcas con influencers y creadores, gestiona campañas y mide impacto en tiempo real."
+        type = CORE_DOMAIN
+    }
+
+    Subdomain LealtadAdvocacy {
+        domainVisionStatement = "Gestiona programas de referidos y embajadores de marca con recompensas automáticas."
+        type = SUPPORTING_DOMAIN
+    }
+
+    Subdomain AlianzasB2B {
+        domainVisionStatement = "Administra alianzas estratégicas B2B, contratos y revenue share."
+        type = CORE_DOMAIN
+    }
+
+    Subdomain Pagos {
+        domainVisionStatement = "Orquesta pagos, calcula comisiones, integra con gateways externos y asegura conciliación."
+        type = SUPPORTING_DOMAIN
+    }
+
+    Subdomain Analitica {
+        domainVisionStatement = "Ofrece dashboards, reportes de ROI, atribución multi-canal y optimización de campañas."
+        type = SUPPORTING_DOMAIN
+    }
+
+    Subdomain Plataforma {
+        domainVisionStatement = "Infraestructura transversal de mensajería, seguridad, DevOps y observabilidad."
+        type = GENERIC_SUBDOMAIN
+    }
+}
