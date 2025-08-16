@@ -1,6 +1,5 @@
 // =========================================================
 // Alpes Partners — Dominios, Subdominios, Contextos y Mapa
-// (ES - Context Mapper CML)
 // =========================================================
 
 Domain AlpesPartners {
@@ -69,7 +68,7 @@ BoundedContext MarketingInfluencersContexto implements MarketingInfluencers, Ges
   domainVisionStatement = "Gestionar campañas con influencers/creadores, contenido y cumplimiento de divulgación."
 }
 
-BoundedContext LealtadAdvocacyContexto implements ProgramasLealtad {
+BoundedContext ProgramasLealtadContexto implements ProgramasLealtad {
   domainVisionStatement = "Programas de referidos/embajadores con incentivos automáticos."
 }
 
@@ -96,7 +95,7 @@ BoundedContext PlataformaContexto implements Plataforma {
 ContextMap AlpesPartnersMapaContexto {
   contains MarketingAfiliadosContexto
   contains MarketingInfluencersContexto
-  contains LealtadAdvocacyContexto
+  contains ProgramasLealtadContexto
   contains AlianzasB2BContexto
   contains PagosContexto
   contains AnaliticaContexto
@@ -105,13 +104,13 @@ ContextMap AlpesPartnersMapaContexto {
   // UPSTREAM [U] → DOWNSTREAM [D] (notación abreviada)
   MarketingAfiliadosContexto   [U,PL,OHS]->[D,ACL] PagosContexto
   MarketingInfluencersContexto [U,PL,OHS]->[D,ACL] PagosContexto
-  LealtadAdvocacyContexto      [U,PL,OHS]->[D,ACL] PagosContexto
+  ProgramasLealtadContexto      [U,PL,OHS]->[D,ACL] PagosContexto
   AlianzasB2BContexto          [U,PL,OHS]->[D,ACL] PagosContexto
 
   // Datos hacia analítica
   MarketingAfiliadosContexto   [U]->[D] AnaliticaContexto
   MarketingInfluencersContexto [U]->[D] AnaliticaContexto
-  LealtadAdvocacyContexto      [U]->[D] AnaliticaContexto
+  ProgramasLealtadContexto      [U]->[D] AnaliticaContexto
   AlianzasB2BContexto          [U]->[D] AnaliticaContexto
   PagosContexto                [U]->[D] AnaliticaContexto
 
