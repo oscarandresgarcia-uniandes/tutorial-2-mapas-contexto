@@ -41,7 +41,7 @@ Domain AlpesPartners {
 
   Subdomain GestionMarcas {
     type = SUPPORTING_DOMAIN
-    domainVisionStatement = "acilitar a las marcas la gestión centralizada de sus programas de asociaciones, incluyendo onboarding, contratos, segmentación y seguimiento del ROI, para escalar campañas de los diferentes socios de programa (Partners)."
+    domainVisionStatement = "Facilitar a las marcas la gestión centralizada de sus programas de asociaciones, incluyendo onboarding, contratos, segmentación y seguimiento del ROI, para escalar campañas de los diferentes socios de programa (Partners)."
   }
 
   Subdomain GestionSocios {
@@ -69,52 +69,56 @@ Domain AlpesPartners {
 // Bounded Contexts
 // =========================================================
 
+
+BoundedContext AlpesPartnersContexto implements AlpesPartners {
+
+}
 BoundedContext MarketingAfiliadosContexto implements MarketingAfiliados {
-  domainVisionStatement = "Crear y operar programas de afiliados: reclutamiento, tracking, atribución y liquidación."
+  
 }
 
 BoundedContext MarketingInfluencersContexto implements MarketingInfluencers, GestionContenido, GestionCampanasContratos {
-  domainVisionStatement = "Gestionar campañas con influencers/creadores, contenido y cumplimiento de divulgación."
+  
 }
 
 BoundedContext AlianzasB2BContexto implements AlianzasB2B {
-  domainVisionStatement = "Ciclo de vida de alianzas B2B, contratos y revenue-share."
+  
 }
 
 BoundedContext ProgramasLealtadContexto implements ProgramasLealtad {
-  domainVisionStatement = "Programas de referidos/embajadores con incentivos automáticos."
+  
 }
 
-BoundedContext PagosContexto implements Pagos, Cumplimiento {
-  domainVisionStatement = "Orquestación de pagos, integración con gateways y conciliación; validaciones de compliance antifraude."
+BoundedContext PagosContexto implements Pagos {
+  
 }
 
 BoundedContext CumplimientosContexto implements Cumplimiento {
-  domainVisionStatement = "Cumplimiento normativo y políticas (divulgación publicitaria, antifraude, privacidad)."
+  
 }
 
 BoundedContext GestionCampanasContratosContexto implements GestionCampanasContratos {
-  domainVisionStatement = "Gestión administrativa de campañas y contratos (briefs, aprobaciones, hitos y legal)."
+  
 }
 
 BoundedContext GestionMarcasContexto implements GestionMarcas {
-  domainVisionStatement = "Gestión centralizada de programas de asociaciones, onboarding, contratos y seguimiento del ROI."
+  
 }
 
 BoundedContext GestionSociosContexto implements GestionSocios {
-  domainVisionStatement = "Orquestar la relación con socios del programa: incorporación, validación, segmentación y monitoreo de desempeño."
+  
 }
 
 BoundedContext GestionContratosCatalogosDeOfertasContexto implements GestionContratosCatalogosDeOfertas {
-  domainVisionStatement = "Centralizar la creación y administración de contratos y catálogos de ofertas para Socios de Programa."
+  
 }
 
 BoundedContext AnaliticaContexto implements Analitica {
-  domainVisionStatement = "Dashboards, atribución de ROI y analítica de contribución."
+  
 }
 
 BoundedContext GestionContenidoContexto implements GestionContenido {
-  domainVisionStatement = "Producción, aprobación y publicación de contenido para campañas con creadores."
+  
 }
 
 // =========================================================
