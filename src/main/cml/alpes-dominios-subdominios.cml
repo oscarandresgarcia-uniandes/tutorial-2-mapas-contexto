@@ -1,5 +1,5 @@
 // =========================================================
-// Alpes Partners — Dominios, Subdominios, Contextos y Mapa
+// Alpes Partners — Dominios, Subdominios
 // =========================================================
 
 Domain AlpesPartners {
@@ -59,10 +59,83 @@ Domain AlpesPartners {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Monitoreo de métricas, dashboards y reporting de ROI/contribución."
   }
-
   Subdomain GestionContenido {
     type = GENERIC_SUBDOMAIN
     domainVisionStatement = "Producción, aprobación y publicación de contenido para campañas con creadores."
   }
+}
 
+// =========================================================
+// Bounded Contexts
+// =========================================================
+
+
+BoundedContext AlpesPartnersContexto implements AlpesPartners {
+
+}
+BoundedContext MarketingAfiliadosContexto implements MarketingAfiliados {
+  
+}
+
+BoundedContext MarketingInfluencersContexto implements MarketingInfluencers, GestionContenido, GestionCampanasContratos {
+  
+}
+
+BoundedContext AlianzasB2BContexto implements AlianzasB2B {
+  
+}
+
+BoundedContext ProgramasLealtadContexto implements ProgramasLealtad {
+  
+}
+
+BoundedContext PagosContexto implements Pagos {
+  
+}
+
+BoundedContext CumplimientosContexto implements Cumplimiento {
+  
+}
+
+BoundedContext GestionCampanasContratosContexto implements GestionCampanasContratos {
+  
+}
+
+BoundedContext GestionMarcasContexto implements GestionMarcas {
+  
+}
+
+BoundedContext GestionSociosContexto implements GestionSocios {
+  
+}
+
+BoundedContext GestionContratosCatalogosDeOfertasContexto implements GestionContratosCatalogosDeOfertas {
+  
+}
+
+BoundedContext AnaliticaContexto implements Analitica {
+  
+}
+
+BoundedContext GestionContenidoContexto implements GestionContenido {
+  
+}
+
+// =========================================================
+// Context Map
+// =========================================================
+
+ContextMap AlpesPartnersMapaContexto {
+  contains MarketingAfiliadosContexto
+  contains MarketingInfluencersContexto
+  contains AlianzasB2BContexto
+  contains ProgramasLealtadContexto
+  contains PagosContexto
+  contains CumplimientosContexto
+  contains GestionCampanasContratosContexto
+  contains GestionMarcasContexto
+  contains GestionSociosContexto
+  contains GestionContratosCatalogosDeOfertasContexto
+  contains AnaliticaContexto
+  contains GestionContenidoContexto
 }
