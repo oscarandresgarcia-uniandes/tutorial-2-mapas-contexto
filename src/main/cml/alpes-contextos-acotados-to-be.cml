@@ -1,154 +1,70 @@
 // =========================================================
-// Alpes Partners — Dominios, Subdominios, Contextos y Mapa
+// Alpes Partners — TO-BE (Contextos Acotados)
 // =========================================================
 
-Domain AlpesPartners {
-  domainVisionStatement = "Plataforma integral para gestionar asociaciones de marketing (afiliados, influencers, lealtad y B2B), con atribución y pagos automatizados."
+BoundedContext MarketingAfiliadosContexto { }
+BoundedContext MarketingInfluencersContexto { }
+BoundedContext ProgramasLealtadContexto { }
+BoundedContext AlianzasB2BContexto { }
 
-  // ---------- Núcleo (Core) ----------
-  Subdomain MarketingAfiliados {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Automatiza programas de afiliación end-to-end: búsqueda/reclutamiento, tracking, atribución y comisiones."
-  }
-  Subdomain MarketingInfluencers {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Gestiona colaboraciones con creadores: contenido, campañas y resultados medibles."
-  }
-  Subdomain AlianzasB2B {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Orquesta el ciclo de vida completo de partnerships B2B y acuerdos comerciales."
-  }
+BoundedContext ServicioTrackerContexto { }
+BoundedContext ServicioAtribucionContexto { }
+BoundedContext MotorComisionesContexto { }
+BoundedContext OrquestadorPagosContexto { }
+BoundedContext ProcesadorPagosExternoContexto { }
+BoundedContext CumplimientoFraudeContexto { }
+BoundedContext BigDataContexto { }
+BoundedContext AnaliticaContexto { }
+BoundedContext LinkGeneratorContexto { }
+BoundedContext DashboardContexto { }
+BoundedContext PlataformaContexto { }
 
-  Subdomain ProgramasLealtad {
-    type = CORE_DOMAIN
-    domainVisionStatement = "Programa de referidos/embajadores con incentivos automáticos para amplificar el alcance."
-  }
-
-  // ---------- Soporte (Supporting) ----------
-
-  Subdomain Pagos {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Configuración de comisiones y atribuciones; liquidación y conciliación de pagos integrados a gateways."
-  }
-  Subdomain Cumplimiento {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Cumplimiento normativo y políticas (divulgación publicitaria, antifraude, privacidad)."
-  }
-  Subdomain GestionCampanasContratos {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Gestión administrativa de campañas y contratos (briefs, aprobaciones, hitos y legal)."
-  }
-
-  Subdomain GestionMarcas {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Facilitar a las marcas la gestión centralizada de sus programas de asociaciones, incluyendo onboarding, contratos, segmentación y seguimiento del ROI, para escalar campañas de los diferentes socios de programa (Partners)."
-  }
-
-  Subdomain GestionSocios {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Orquestar la relación con los socios del programa, abarcando su incorporación, validación de cumplimiento, segmentación, contratos y monitoreo de desempeño, para asegurar colaboraciones confiables y rentables."
-  }
-
-  Subdomain GestionContratosCatalogosDeOfertas {
-    type = SUPPORTING_DOMAIN
-    domainVisionStatement = "Centralizar la creación, administración y publicación de contratos y catálogos de ofertas, estandarizando términos comerciales, reglas de atribución e incentivos para habilitar programas consistentes de Socios de Programa (Partners)"
-  }
-
-  // ---------- Genéricos (Generic) ----------
-  Subdomain Analitica {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Monitoreo de métricas, dashboards y reporting de ROI/contribución."
-  }
-  Subdomain GestionContenido {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Producción, aprobación y publicación de contenido para campañas con creadores."
-  }
-}
-
-// =========================================================
-// Bounded Contexts
-// =========================================================
-
-
-BoundedContext AlpesPartnersContexto implements AlpesPartners {
-
-}
-BoundedContext MarketingAfiliadosContexto implements MarketingAfiliados {
-  
-}
-
-BoundedContext MarketingInfluencersContexto implements MarketingInfluencers, GestionContenido, GestionCampanasContratos {
-  
-}
-
-BoundedContext AlianzasB2BContexto implements AlianzasB2B {
-  
-}
-
-BoundedContext ProgramasLealtadContexto implements ProgramasLealtad {
-  
-}
-
-BoundedContext PagosContexto implements Pagos {
-  
-}
-
-BoundedContext CumplimientosContexto implements Cumplimiento {
-  
-}
-
-BoundedContext GestionCampanasContratosContexto implements GestionCampanasContratos {
-  
-}
-
-BoundedContext GestionMarcasContexto implements GestionMarcas {
-  
-}
-
-BoundedContext GestionSociosContexto implements GestionSocios {
-  
-}
-
-BoundedContext GestionContratosCatalogosDeOfertasContexto implements GestionContratosCatalogosDeOfertas {
-  
-}
-
-BoundedContext AnaliticaContexto implements Analitica {
-  
-}
-
-BoundedContext GestionContenidoContexto implements GestionContenido {
-  
-}
-
-// =========================================================
-// Context Map (relaciones principales entre contextos)
-// =========================================================
-
-ContextMap AlpesPartnersMapaContexto {
+ContextMap AlpesPartnersMapaTOBE {
+  // --- Contenidos del mapa
   contains MarketingAfiliadosContexto
   contains MarketingInfluencersContexto
-  contains AlianzasB2BContexto
   contains ProgramasLealtadContexto
-  contains PagosContexto
-  contains CumplimientosContexto
-  contains GestionCampanasContratosContexto
-  contains GestionMarcasContexto
-  contains GestionSociosContexto
-  contains GestionContratosCatalogosDeOfertasContexto
+  contains AlianzasB2BContexto
+  contains ServicioTrackerContexto
+  contains ServicioAtribucionContexto
+  contains MotorComisionesContexto
+  contains OrquestadorPagosContexto
+  contains ProcesadorPagosExternoContexto
+  contains CumplimientoFraudeContexto
+  contains BigDataContexto
   contains AnaliticaContexto
-  contains GestionContenidoContexto
+  contains LinkGeneratorContexto
+  contains DashboardContexto
+  contains PlataformaContexto
 
-  // UPSTREAM [U] → DOWNSTREAM [D] (notación abreviada)
-  MarketingAfiliadosContexto   [U,PL,OHS]->[D,ACL] PagosContexto
-  MarketingInfluencersContexto [U,PL,OHS]->[D,ACL] PagosContexto
-  ProgramasLealtadContexto      [U,PL,OHS]->[D,ACL] PagosContexto
-  AlianzasB2BContexto          [U,PL,OHS]->[D,ACL] PagosContexto
+  // --- Relaciones y patrones
+  MarketingAfiliadosContexto   [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
+  MarketingInfluencersContexto [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
+  ProgramasLealtadContexto     [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
+  AlianzasB2BContexto          [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
 
-  // Datos hacia analítica
-  MarketingAfiliadosContexto   [U]->[D] AnaliticaContexto
-  MarketingInfluencersContexto [U]->[D] AnaliticaContexto
-  ProgramasLealtadContexto      [U]->[D] AnaliticaContexto
-  AlianzasB2BContexto          [U]->[D] AnaliticaContexto
-  PagosContexto                [U]->[D] AnaliticaContexto
+  MarketingAfiliadosContexto   [U] -> [D] AnaliticaContexto
+  MarketingInfluencersContexto [U] -> [D] AnaliticaContexto
+  ProgramasLealtadContexto     [U] -> [D] AnaliticaContexto
+  AlianzasB2BContexto          [U] -> [D] AnaliticaContexto
+
+  ServicioTrackerContexto     [U,PL,OHS] -> [D,ACL] ServicioAtribucionContexto
+  ServicioAtribucionContexto  [U,PL,OHS] -> [D,ACL] MotorComisionesContexto
+  MotorComisionesContexto     [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
+
+  OrquestadorPagosContexto [D,ACL] <- [U,PL,OHS] ProcesadorPagosExternoContexto
+
+  CumplimientoFraudeContexto [U,PL,OHS] -> [D,ACL] OrquestadorPagosContexto
+  CumplimientoFraudeContexto [U,PL,OHS] -> [D,ACL] ServicioAtribucionContexto
+
+  ServicioTrackerContexto    [U,PL,OHS] -> [D,ACL] BigDataContexto
+  ServicioAtribucionContexto [U,PL,OHS] -> [D,ACL] BigDataContexto
+  MotorComisionesContexto    [U,PL,OHS] -> [D,ACL] BigDataContexto
+  BigDataContexto            [U,PL,OHS] -> [D,CF]  AnaliticaContexto
+
+  LinkGeneratorContexto [U,PL,OHS] -> [D,ACL] ServicioTrackerContexto
+
+  PlataformaContexto [U] -> [D] AnaliticaContexto
+  PlataformaContexto [U] -> [D] OrquestadorPagosContexto
+  AnaliticaContexto  [U,PL,OHS] -> [D,ACL] DashboardContexto
 }
