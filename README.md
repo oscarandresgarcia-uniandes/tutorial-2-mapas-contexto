@@ -2,7 +2,7 @@
 # Demostración de Context Mapper para Alpes Partners
 [![Build](https://github.com/ContextMapper/web-ide-demo/actions/workflows/build.yml/badge.svg)](https://github.com/ContextMapper/web-ide-demo/actions) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&repo=MISW4406/tutorial-2-mapas-contexto) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Bienvenido al repositorio de demostración de Context Mapper. Aquí se ilustra cómo puedes configurar tu propio repositorio para utilizar Context Mapper en el IDE en línea de GitHub Codespaces.
+Bienvenido al repositorio de Alpes Partners. Aquí se ilustra cómo puedes configurar el repositorio para utilizar Context Mapper en el IDE en línea de GitHub Codespaces y así generar los diferentes diagramas tanto de Dominios y Subnominios para el lenguaje Obicuo, así como los diagramas de los contextos acotados.
 
 ## Comienza a utilizar Context Mapper ahora
 Inicia el Codespace y usa Context Mapper de inmediato:
@@ -12,12 +12,14 @@ Inicia el Codespace y usa Context Mapper de inmediato:
 </a>
 <br/><br/>
 
-## Abre el archivo de demostración
-En la carpeta `src/main/cml` encontrarás un pequeño **[demo en CML](./src/main/cml/demo.cml)** (aplicación de ejemplo DDD) con el que puedes empezar a familiarizarte con nuestro DSL y nuestras herramientas.
+## Abre uno de los archivos
+En la carpeta `src/main/cml` encontrarás los difrrentes diagramas:
+
+**[Dominios y subdominios](./src/main/cml/alpes-dominios-subdominios.cml)** Dominios y subdominios de Alpes Partners.
+**[ContextoS acotadoS AS-IS](./src/main/cml/alpes-contextos-acotados-as-is.cml)** Contextos Acotados de Alpes Partners (AS-IS).
+**[ContextoS acotadoS TO-BE](./src/main/cml/alpes-contextos-acotados-to-be.cml)** Contextos Acotados de Alpes Partners (TO-BE).
 Puedes encontrar más información sobre la herramienta y la documentación completa en nuestro sitio web [https://contextmapper.org/](https://contextmapper.org/).
 
-## Crea tu propio repositorio de mapeo de contextos
-Puedes hacer un fork de este repositorio y hacer clic en el botón de arriba para iniciar el Codespace para tu repo.
 
 ## Enlaces útiles
 
