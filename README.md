@@ -16,8 +16,11 @@ Inicia el Codespace y usa Context Mapper de inmediato:
 En la carpeta `src/main/cml` encontrarás los difErentes diagramas:
 
 **[Dominios y subdominios](./src/main/cml/alpes-dominios-subdominios.cml)** Dominios y subdominios de Alpes Partners.
+
 **[ContextoS acotadoS AS-IS](./src/main/cml/alpes-contextos-acotados-as-is.cml)** Contextos Acotados de Alpes Partners (AS-IS).
+
 **[ContextoS acotadoS TO-BE](./src/main/cml/alpes-contextos-acotados-to-be.cml)** Contextos Acotados de Alpes Partners (TO-BE).
+
 Puedes encontrar más información sobre la herramienta y la documentación completa en nuestro sitio web [https://contextmapper.org/](https://contextmapper.org/).
 
 
