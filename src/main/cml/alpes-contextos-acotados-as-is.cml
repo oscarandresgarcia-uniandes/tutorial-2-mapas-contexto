@@ -2,15 +2,41 @@
 // Alpes Partners — AS-IS (Contextos Acotados)
 // =========================================================
 
-BoundedContext MarketingAfiliadosContexto { }
-BoundedContext MarketingInfluencersContexto { }
-BoundedContext ProgramasLealtadContexto { }
-BoundedContext AlianzasB2BContexto { }
-BoundedContext PagosContexto { }
-BoundedContext AnaliticaContexto { }
-BoundedContext TrackerMonolitoContexto { }
-BoundedContext DashboardContexto { }
-BoundedContext PlataformaContexto { }
+BoundedContext MarketingAfiliadosContexto {
+  domainVisionStatement = "Automatiza programas de afiliación end-to-end: reclutamiento, tracking de clics/ventas, atribución (CPA, CPL, CPC) y cálculo de comisiones."
+}
+
+BoundedContext MarketingInfluencersContexto {
+  domainVisionStatement = "Gestiona colaboraciones con creadores de contenido: búsqueda avanzada, contratos, seguimiento de publicaciones y atribución de resultados."
+}
+
+BoundedContext ProgramasLealtadContexto {
+  domainVisionStatement = "Activa redes de empleados y clientes como embajadores de marca, con enlaces únicos de referidos, incentivos automáticos y tracking de conversiones."
+}
+
+BoundedContext AlianzasB2BContexto {
+  domainVisionStatement = "Orquesta el ciclo de vida de partnerships e integraciones SaaS B2B: acuerdos comerciales, activaciones y seguimiento de resultados."
+}
+
+BoundedContext PagosContexto {
+  domainVisionStatement = "Módulo del monolito para liquidación y conciliación de pagos: cálculo de comisiones, pagos automáticos multi-moneda y cumplimiento antifraude."
+}
+
+BoundedContext AnaliticaContexto {
+  domainVisionStatement = "Generación de reportes y dashboards monolíticos: métricas de ROI, análisis de contribución y optimización de campañas."
+}
+
+BoundedContext TrackerMonolitoContexto {
+  domainVisionStatement = "Registro centralizado de clics parte del monolito, conversiones y eventos en tiempo real mediante tags, píxeles o APIs server-to-server."
+}
+
+BoundedContext DashboardContexto {
+  domainVisionStatement = "Interfaz de usuario para marcas y socios, que consume reportes y métricas desde Analítica para la toma de decisiones."
+}
+
+BoundedContext PlataformaContexto {
+  domainVisionStatement = "Portal del monolito donde marcas y socios acceden a funcionalidades centrales: gestión de campañas, contratos, onboarding y monitoreo."
+}
 
 ContextMap AlpesPartnersMapaASIS {
   // --- Contenidos del mapa

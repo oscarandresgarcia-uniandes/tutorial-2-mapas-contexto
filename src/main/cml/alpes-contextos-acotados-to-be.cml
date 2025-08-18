@@ -2,22 +2,52 @@
 // Alpes Partners — TO-BE (Contextos Acotados)
 // =========================================================
 
-BoundedContext MarketingAfiliadosContexto { }
-BoundedContext MarketingInfluencersContexto { }
-BoundedContext ProgramasLealtadContexto { }
-BoundedContext AlianzasB2BContexto { }
+BoundedContext MarketingAfiliadosContexto {
+  domainVisionStatement = "Habilitar programas de afiliación desacoplados y orientados a eventos: reclutamiento, tracking, atribución de performance y reglas de incentivos por CPA/CPL/CPC."
+}
+BoundedContext MarketingInfluencersContexto {
+  domainVisionStatement = "Gestionar el ciclo de vida de campañas con creadores: discovery, contratos, ejecución y medición atribuida a contenido, con eventos estandarizados."
+}
+BoundedContext ProgramasLealtadContexto {
+  domainVisionStatement = "Orquestar referidos/advocacy con enlaces únicos, incentivos programables y seguimiento de conversiones en un flujo event-driven."
+}
+BoundedContext AlianzasB2BContexto {
+  domainVisionStatement = "Administrar partnerships e integraciones SaaS B2B, acuerdos por hitos y activaciones, publicando eventos de negocio consistentes."
+}
 
-BoundedContext ServicioTrackerContexto { }
-BoundedContext ServicioAtribucionContexto { }
-BoundedContext MotorComisionesContexto { }
-BoundedContext OrquestadorPagosContexto { }
-BoundedContext ProcesadorPagosExternoContexto { }
-BoundedContext CumplimientoFraudeContexto { }
-BoundedContext BigDataContexto { }
-BoundedContext AnaliticaContexto { }
-BoundedContext LinkGeneratorContexto { }
-BoundedContext DashboardContexto { }
-BoundedContext PlataformaContexto { }
+BoundedContext ServicioTrackerContexto {
+  domainVisionStatement = "Capturar y normalizar eventos de clic, vista y conversión desde web/app/API; garantizar idempotencia, baja latencia y entrega confiable."
+}
+BoundedContext ServicioAtribucionContexto {
+  domainVisionStatement = "Resolver atribución (single/multi-touch) sobre el stream de eventos con ventanas temporales, deduplicación y reglas configurables."
+}
+BoundedContext MotorComisionesContexto {
+  domainVisionStatement = "Calcular comisiones e incentivos en tiempo real/near-real-time aplicando reglas por modelo (CPA, CPL, CPC) y políticas de elegibilidad."
+}
+BoundedContext OrquestadorPagosContexto {
+  domainVisionStatement = "Orquestar órdenes de pago end-to-end con validaciones, conciliación, reintentos y garantías de exactamente-una-vez hacia PSPs."
+}
+BoundedContext ProcesadorPagosExternoContexto {
+  domainVisionStatement = "Expose un contrato estable (OHS/PL) para ejecutar pagos, reversos y conciliaciones; publicar estados de transacción y liquidación."
+}
+BoundedContext CumplimientoFraudeContexto {
+  domainVisionStatement = "Evaluar riesgo y cumplimiento antifraude con reglas y scoring, emitiendo decisiones que bloquean o condicionan pagos y atribución."
+}
+BoundedContext BigDataContexto {
+  domainVisionStatement = "Persistir y servir datos históricos/operacionales (batch/stream) como capa de datos gobernada para analítica, ML y auditoría."
+}
+BoundedContext AnaliticaContexto {
+  domainVisionStatement = "Modelos semánticos, dashboards y reporting de ROI/contribución, alimentados por BigData y eventos de dominio normalizados."
+}
+BoundedContext LinkGeneratorContexto {
+  domainVisionStatement = "Generar y gestionar enlaces de tracking/deep links (UTM, parámetros de campaña) con versiones, expiración y políticas anti-fraude."
+}
+BoundedContext DashboardContexto {
+  domainVisionStatement = "Superficie de visualización para marcas y socios: métricas operativas, insights y acciones self-service sobre eventos y pagos."
+}
+BoundedContext PlataformaContexto {
+  domainVisionStatement = "Portal multi-tenant para onboarding, contratos, segmentación y gobierno del programa; punto de acceso a capacidades de la polataforma."
+}
 
 ContextMap AlpesPartnersMapaTOBE {
   // --- Contenidos del mapa
